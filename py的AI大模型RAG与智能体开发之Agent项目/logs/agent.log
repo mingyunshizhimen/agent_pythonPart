@@ -1,0 +1,678 @@
+2026-03-08 01:29:09 ERROR [agent] [prompt_loader.py:10] - [load_system_prompts]在yml配置项中没用main_prompt_path配置项
+2026-03-08 01:31:02 ERROR [agent] [prompt_loader.py:16] - [load_system_prompts]解析系统提示词出错,[Errno 2] No such file or directory: 'D:\\PycharmProjects\\py的AI大模型RAG与智能体开发之Agent项目\\prompts/main_prompt.txt'
+2026-03-08 01:32:39 ERROR [agent] [prompt_loader.py:29] - [load_rag_prompts]解析RAG总结提示词出错,[Errno 2] No such file or directory: 'D:\\PycharmProjects\\py的AI大模型RAG与智能体开发之Agent项目\\prompts/rag_summarize_path.txt'
+2026-03-08 02:13:14 ERROR [agent] [file_handler.py:29] - [listdir_with_allowed_type]文件不存在:data
+2026-03-08 02:16:11 INFO [agent] [vector_store.py:56] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\扫地机器人 100 问 2.txt内容已经存在知识库中,跳过
+2026-03-08 02:16:12 INFO [agent] [vector_store.py:71] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\扫地机器人 100 问.txt内容已存入知识库中
+2026-03-08 02:16:13 INFO [agent] [vector_store.py:71] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\扫拖一体机器人 100 问.txt内容已存入知识库中
+2026-03-08 02:16:13 INFO [agent] [vector_store.py:71] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\故障排除.txt内容已存入知识库中
+2026-03-08 02:16:14 INFO [agent] [vector_store.py:71] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\维护保养.txt内容已存入知识库中
+2026-03-08 02:16:15 INFO [agent] [vector_store.py:71] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\选购指南.txt内容已存入知识库中
+2026-03-08 02:19:01 ERROR [agent] [vector_store.py:74] - [加载知识库]加载文件D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\扫地机器人100问.pdf出错:`pypdf` package not found, please install it with `pip install pypdf`
+Traceback (most recent call last):
+  File "D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\.venv\Lib\site-packages\langchain_community\document_loaders\parsers\pdf.py", line 359, in lazy_parse
+    import pypdf
+ModuleNotFoundError: No module named 'pypdf'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\rag\vector_store.py", line 59, in load_documents
+    documents: list[Document]=get_file_documents(path)
+                              ~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\rag\vector_store.py", line 45, in get_file_documents
+    return pdf_loader(read_path)
+  File "D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\utils\file_handler.py", line 39, in pdf_loader
+    return PyPDFLoader(filepath,passwd).load()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\.venv\Lib\site-packages\langchain_core\document_loaders\base.py", line 43, in load
+    return list(self.lazy_load())
+  File "D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\.venv\Lib\site-packages\langchain_community\document_loaders\pdf.py", line 305, in lazy_load
+    yield from self.parser.lazy_parse(blob)
+  File "D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\.venv\Lib\site-packages\langchain_community\document_loaders\parsers\pdf.py", line 361, in lazy_parse
+    raise ImportError(
+        "`pypdf` package not found, please install it with `pip install pypdf`"
+    )
+ImportError: `pypdf` package not found, please install it with `pip install pypdf`
+2026-03-08 02:19:05 INFO [agent] [vector_store.py:71] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\扫地机器人100问2.txt内容已存入知识库中
+2026-03-08 02:19:11 INFO [agent] [vector_store.py:71] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\扫拖一体机器人100问.txt内容已存入知识库中
+2026-03-08 02:19:21 INFO [agent] [vector_store.py:71] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\故障排除.txt内容已存入知识库中
+2026-03-08 02:19:26 INFO [agent] [vector_store.py:71] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\维护保养.txt内容已存入知识库中
+2026-03-08 02:19:31 INFO [agent] [vector_store.py:71] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\选购指南.txt内容已存入知识库中
+2026-03-08 02:20:30 INFO [agent] [vector_store.py:71] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\扫地机器人100问.pdf内容已存入知识库中
+2026-03-08 02:20:34 INFO [agent] [vector_store.py:71] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\扫地机器人100问2.txt内容已存入知识库中
+2026-03-08 02:20:39 INFO [agent] [vector_store.py:71] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\扫拖一体机器人100问.txt内容已存入知识库中
+2026-03-08 02:20:48 INFO [agent] [vector_store.py:71] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\故障排除.txt内容已存入知识库中
+2026-03-08 02:20:53 INFO [agent] [vector_store.py:71] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\维护保养.txt内容已存入知识库中
+2026-03-08 02:20:58 INFO [agent] [vector_store.py:71] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\选购指南.txt内容已存入知识库中
+2026-03-08 14:20:25 WARNING [agent] [agent_tools.py:246] - [fetch_external_data] 未找到用户1021在2025-01的记录
+2026-03-08 16:00:30 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-08 16:00:30 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|扫地机器人在我所在的地区的气温下如何保养
+2026-03-08 16:00:33 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_user_location
+2026-03-08 16:00:33 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{}
+2026-03-08 16:00:33 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_user_location', 'args': {}, 'id': 'call_b8624e31a9834424b8c195a8', 'type': 'tool_call'}执行结果:content='广州' name='get_user_location' tool_call_id='call_b8624e31a9834424b8c195a8'
+2026-03-08 16:00:33 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-08 16:00:33 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|广州
+2026-03-08 16:00:36 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_weather
+2026-03-08 16:00:36 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'city': '广州'}
+2026-03-08 16:00:36 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_weather', 'args': {'city': '广州'}, 'id': 'call_1c5c9962eadd4a4199b642ba', 'type': 'tool_call'}执行结果:content='城市广州天气为晴天，气温 26 度，空气湿度 50%' name='get_weather' tool_call_id='call_1c5c9962eadd4a4199b642ba'
+2026-03-08 16:00:36 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有5条消息
+2026-03-08 16:00:36 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|城市广州天气为晴天，气温 26 度，空气湿度 50%
+2026-03-08 16:00:40 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:rag_summarize
+2026-03-08 16:00:40 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'query': '扫地机器人在26度气温和50%湿度环境下的保养方法'}
+2026-03-08 16:00:45 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'rag_summarize', 'args': {'query': '扫地机器人在26度气温和50%湿度环境下的保养方法'}, 'id': 'call_a1f5df99f1844f949393e63e', 'type': 'tool_call'}执行结果:content='在26度气温和50%湿度环境下，扫地机器人应每日使用后用干软布擦拭机身外壳，去除灰尘和水渍；每次清扫完成后及时清理防撞条缝隙中的毛发和线头，防止卡扣卡顿。该温湿度条件未在参考资料中被特别归类为特殊环境（如干燥、重油污或高湿区域），因此按通用基础维护执行即可。' name='rag_summarize' tool_call_id='call_a1f5df99f1844f949393e63e'
+2026-03-08 16:00:45 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有7条消息
+2026-03-08 16:00:45 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|在26度气温和50%湿度环境下，扫地机器人应每日使用后用干软布擦拭机身外壳，去除灰尘和水渍；每次清扫完成后及时清理防撞条缝隙中的毛发和线头，防止卡扣卡顿。该温湿度条件未在参考资料中被特别归类为特殊环境（如干燥、重油污或高湿区域），因此按通用基础维护执行即可。
+2026-03-08 16:04:06 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-08 16:04:06 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|给我生成我的使用报告
+2026-03-08 16:04:08 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:fill_context_for_report
+2026-03-08 16:04:08 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{}
+2026-03-08 16:04:08 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'fill_context_for_report', 'args': {}, 'id': 'call_21cc4f4737a340f4b982b164', 'type': 'tool_call'}执行结果:content='fill_context_for_report已经调用' name='fill_context_for_report' tool_call_id='call_21cc4f4737a340f4b982b164'
+2026-03-08 16:04:08 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-08 16:04:08 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|fill_context_for_report已经调用
+2026-03-08 16:04:11 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_user_id
+2026-03-08 16:04:11 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{}
+2026-03-08 16:04:11 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_user_id', 'args': {}, 'id': 'call_4f1f537374664da8ab96e683', 'type': 'tool_call'}执行结果:content='1005' name='get_user_id' tool_call_id='call_4f1f537374664da8ab96e683'
+2026-03-08 16:04:11 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有5条消息
+2026-03-08 16:04:11 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|1005
+2026-03-08 16:04:13 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_current_month
+2026-03-08 16:04:13 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{}
+2026-03-08 16:04:13 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_current_month', 'args': {}, 'id': 'call_157fef0001c94295ba26290d', 'type': 'tool_call'}执行结果:content='2025-06' name='get_current_month' tool_call_id='call_157fef0001c94295ba26290d'
+2026-03-08 16:04:13 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有7条消息
+2026-03-08 16:04:13 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|2025-06
+2026-03-08 16:04:15 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:fetch_external_data
+2026-03-08 16:04:15 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'user_id': '1005', 'month': '2025-06'}
+2026-03-08 16:04:15 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'fetch_external_data', 'args': {'user_id': '1005', 'month': '2025-06'}, 'id': 'call_e00d67eaf02f4f4082ea7150', 'type': 'tool_call'}执行结果:content='{"特征": "120㎡ | 老人 | 防滑砖", "效率": "手动操作占比:95%\\\\n定时清扫未使用", "耗材": "电池衰减:25%\\\\n水箱未激活", "对比": "急需语音控制功能"}' name='fetch_external_data' tool_call_id='call_e00d67eaf02f4f4082ea7150'
+2026-03-08 16:04:15 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有9条消息
+2026-03-08 16:04:15 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|{"特征": "120㎡ | 老人 | 防滑砖", "效率": "手动操作占比:95%\\n定时清扫未使用", "耗材": "电池衰减:25%\\n水箱未激活", "对比": "急需语音控制功能"}
+2026-03-08 16:04:17 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:rag_summarize
+2026-03-08 16:04:17 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'query': '老人使用扫地机器人建议'}
+2026-03-08 16:04:21 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'rag_summarize', 'args': {'query': '老人使用扫地机器人建议'}, 'id': 'call_bab27e52ce2a4d139144c548', 'type': 'tool_call'}执行结果:content='老人使用扫地机器人建议：优先选择操作简便、导航精准的机型，如激光导航抗干扰强，适合复杂户型；吸力建议≥3000Pa以满足日常清洁需求。若现有机器人使用超过3年，出现吸力严重下降、拖地模组频繁故障、建图错乱且维修费用超过新机价格1/3，建议更换新款，因其扫拖功能和避障效果更优。' name='rag_summarize' tool_call_id='call_bab27e52ce2a4d139144c548'
+2026-03-08 16:04:21 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有11条消息
+2026-03-08 16:04:21 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|老人使用扫地机器人建议：优先选择操作简便、导航精准的机型，如激光导航抗干扰强，适合复杂户型；吸力建议≥3000Pa以满足日常清洁需求。若现有机器人使用超过3年，出现吸力严重下降、拖地模组频繁故障、建图错乱且维修费用超过新机价格1/3，建议更换新款，因其扫拖功能和避障效果更优。
+2026-03-08 16:04:22 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:rag_summarize
+2026-03-08 16:04:22 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'query': '扫地机器人电池保养方法'}
+2026-03-08 16:04:24 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'rag_summarize', 'args': {'query': '扫地机器人电池保养方法'}, 'id': 'call_d4c6d1abefa44b7791ba2718', 'type': 'tool_call'}执行结果:content='参考资料中未明确提及扫地机器人电池的具体保养方法。' name='rag_summarize' tool_call_id='call_d4c6d1abefa44b7791ba2718'
+2026-03-08 16:04:24 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有13条消息
+2026-03-08 16:04:24 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|参考资料中未明确提及扫地机器人电池的具体保养方法。
+2026-03-08 16:15:28 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-08 16:15:28 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|扫地机器人在我所在的地区的天气下如何保养
+2026-03-08 16:15:33 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_user_location
+2026-03-08 16:15:33 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{}
+2026-03-08 16:15:33 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_user_location', 'args': {}, 'id': 'call_4c941eedef8f48409bd51966', 'type': 'tool_call'}执行结果:content='深圳' name='get_user_location' tool_call_id='call_4c941eedef8f48409bd51966'
+2026-03-08 16:15:33 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-08 16:15:33 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|深圳
+2026-03-08 16:15:35 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_weather
+2026-03-08 16:15:35 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'city': '深圳'}
+2026-03-08 16:15:35 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_weather', 'args': {'city': '深圳'}, 'id': 'call_b66a5e1348d4422a8f345dcb', 'type': 'tool_call'}执行结果:content='城市深圳天气为晴天，气温 26 度，空气湿度 50%' name='get_weather' tool_call_id='call_b66a5e1348d4422a8f345dcb'
+2026-03-08 16:15:35 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有5条消息
+2026-03-08 16:15:35 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|城市深圳天气为晴天，气温 26 度，空气湿度 50%
+2026-03-08 16:15:40 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:rag_summarize
+2026-03-08 16:15:40 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'query': '扫地机器人在湿度50%的环境下如何保养'}
+2026-03-08 16:15:45 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'rag_summarize', 'args': {'query': '扫地机器人在湿度50%的环境下如何保养'}, 'id': 'call_8f8dd68281404e0f807ec92c', 'type': 'tool_call'}执行结果:content='在湿度50%的环境下，扫地机器人应每日使用后用干软布擦拭机身外壳，去除灰尘和水渍，避免污渍附着硬化；每次清扫完成后及时清理防撞条缝隙中的毛发和线头，防止卡扣卡顿影响回弹。' name='rag_summarize' tool_call_id='call_8f8dd68281404e0f807ec92c'
+2026-03-08 16:15:45 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有7条消息
+2026-03-08 16:15:45 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|在湿度50%的环境下，扫地机器人应每日使用后用干软布擦拭机身外壳，去除灰尘和水渍，避免污渍附着硬化；每次清扫完成后及时清理防撞条缝隙中的毛发和线头，防止卡扣卡顿影响回弹。
+2026-03-08 16:16:30 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-08 16:16:30 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|扫地机器人在我所在的地区的天气下如何保养
+2026-03-08 16:16:34 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_user_location
+2026-03-08 16:16:34 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{}
+2026-03-08 16:16:34 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_user_location', 'args': {}, 'id': 'call_589b781dce9a4215b0504de0', 'type': 'tool_call'}执行结果:content='广州' name='get_user_location' tool_call_id='call_589b781dce9a4215b0504de0'
+2026-03-08 16:16:34 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-08 16:16:34 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|广州
+2026-03-08 16:16:39 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_weather
+2026-03-08 16:16:39 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'city': '广州'}
+2026-03-08 16:16:39 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_weather', 'args': {'city': '广州'}, 'id': 'call_8bfe3a86d88045debd9ea2ca', 'type': 'tool_call'}执行结果:content='城市广州天气为晴天，气温 26 度，空气湿度 50%' name='get_weather' tool_call_id='call_8bfe3a86d88045debd9ea2ca'
+2026-03-08 16:16:39 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有5条消息
+2026-03-08 16:16:39 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|城市广州天气为晴天，气温 26 度，空气湿度 50%
+2026-03-08 16:16:43 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:rag_summarize
+2026-03-08 16:16:43 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'query': '扫地机器人在湿度50%的晴天环境下如何保养'}
+2026-03-08 16:16:47 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'rag_summarize', 'args': {'query': '扫地机器人在湿度50%的晴天环境下如何保养'}, 'id': 'call_b9babbc0c24643bbac306d37', 'type': 'tool_call'}执行结果:content='在湿度50%的晴天环境下，扫地机器人使用后应每日用干软布擦拭机身外壳，去除灰尘和水渍，避免污渍附着硬化；每次清扫完成后，及时清理防撞条缝隙中的毛发和线头，防止卡扣卡顿影响回弹。' name='rag_summarize' tool_call_id='call_b9babbc0c24643bbac306d37'
+2026-03-08 16:16:47 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有7条消息
+2026-03-08 16:16:47 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|在湿度50%的晴天环境下，扫地机器人使用后应每日用干软布擦拭机身外壳，去除灰尘和水渍，避免污渍附着硬化；每次清扫完成后，及时清理防撞条缝隙中的毛发和线头，防止卡扣卡顿影响回弹。
+2026-03-08 16:17:12 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-08 16:17:12 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|扫地机器人在我所在的地区的天气下如何保养
+2026-03-08 16:17:15 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_user_location
+2026-03-08 16:17:15 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{}
+2026-03-08 16:17:15 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_user_location', 'args': {}, 'id': 'call_4a2cb941af004161b510ddbc', 'type': 'tool_call'}执行结果:content='北京' name='get_user_location' tool_call_id='call_4a2cb941af004161b510ddbc'
+2026-03-08 16:17:15 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-08 16:17:15 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|北京
+2026-03-08 16:17:20 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_weather
+2026-03-08 16:17:20 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'city': '北京'}
+2026-03-08 16:17:20 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_weather', 'args': {'city': '北京'}, 'id': 'call_56e8372386764a2fb94aa558', 'type': 'tool_call'}执行结果:content='城市北京天气为晴天，气温 26 度，空气湿度 50%' name='get_weather' tool_call_id='call_56e8372386764a2fb94aa558'
+2026-03-08 16:17:20 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有5条消息
+2026-03-08 16:17:20 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|城市北京天气为晴天，气温 26 度，空气湿度 50%
+2026-03-08 16:17:28 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:rag_summarize
+2026-03-08 16:17:28 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'query': '扫地机器人在晴天、26度、50%湿度环境下的保养方法'}
+2026-03-08 16:17:31 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'rag_summarize', 'args': {'query': '扫地机器人在晴天、26度、50%湿度环境下的保养方法'}, 'id': 'call_faec4215a80743f0b7206e14', 'type': 'tool_call'}执行结果:content='在晴天、26度、50%湿度环境下，扫地机器人应每日使用后用干软布擦拭机身外壳，去除灰尘和水渍；每次清扫完成后及时清理防撞条缝隙中的毛发和线头，防止卡扣卡顿。' name='rag_summarize' tool_call_id='call_faec4215a80743f0b7206e14'
+2026-03-08 16:17:31 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有7条消息
+2026-03-08 16:17:31 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|在晴天、26度、50%湿度环境下，扫地机器人应每日使用后用干软布擦拭机身外壳，去除灰尘和水渍；每次清扫完成后及时清理防撞条缝隙中的毛发和线头，防止卡扣卡顿。
+2026-03-08 16:19:12 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-08 16:19:12 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|扫地机器人在我所在的地区的天气下如何保养
+2026-03-08 16:19:16 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_user_location
+2026-03-08 16:19:16 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{}
+2026-03-08 16:19:16 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_user_location', 'args': {}, 'id': 'call_a0ec99f41fe842578fb83407', 'type': 'tool_call'}执行结果:content='广州' name='get_user_location' tool_call_id='call_a0ec99f41fe842578fb83407'
+2026-03-08 16:19:16 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-08 16:19:16 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|广州
+2026-03-08 16:19:19 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_weather
+2026-03-08 16:19:19 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'city': '广州'}
+2026-03-08 16:19:19 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_weather', 'args': {'city': '广州'}, 'id': 'call_06fa0a60449d4f0d8bdabec3', 'type': 'tool_call'}执行结果:content='城市广州天气为晴天，气温 26 度，空气湿度 50%' name='get_weather' tool_call_id='call_06fa0a60449d4f0d8bdabec3'
+2026-03-08 16:19:19 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有5条消息
+2026-03-08 16:19:19 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|城市广州天气为晴天，气温 26 度，空气湿度 50%
+2026-03-08 16:19:24 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:rag_summarize
+2026-03-08 16:19:24 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'query': '扫地机器人在晴天26度50%湿度环境下的保养方法'}
+2026-03-08 16:19:28 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'rag_summarize', 'args': {'query': '扫地机器人在晴天26度50%湿度环境下的保养方法'}, 'id': 'call_418a7509b74a47cf90c17cc1', 'type': 'tool_call'}执行结果:content='在晴天26度50%湿度环境下，扫地机器人使用后应每日用干软布擦拭机身外壳，去除灰尘和水渍；每次清扫完成后及时清理防撞条缝隙中的毛发和线头，防止卡扣卡顿。' name='rag_summarize' tool_call_id='call_418a7509b74a47cf90c17cc1'
+2026-03-08 16:19:29 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有7条消息
+2026-03-08 16:19:29 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|在晴天26度50%湿度环境下，扫地机器人使用后应每日用干软布擦拭机身外壳，去除灰尘和水渍；每次清扫完成后及时清理防撞条缝隙中的毛发和线头，防止卡扣卡顿。
+2026-03-08 16:19:45 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-08 16:19:45 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|b帮我生成我的使用报告
+2026-03-08 16:19:48 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:fill_context_for_report
+2026-03-08 16:19:48 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{}
+2026-03-08 16:19:48 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'fill_context_for_report', 'args': {}, 'id': 'call_c5ba9f3c764f455c95baa3b3', 'type': 'tool_call'}执行结果:content='fill_context_for_report已经调用' name='fill_context_for_report' tool_call_id='call_c5ba9f3c764f455c95baa3b3'
+2026-03-08 16:19:48 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-08 16:19:48 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|fill_context_for_report已经调用
+2026-03-08 16:19:49 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_user_id
+2026-03-08 16:19:49 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{}
+2026-03-08 16:19:49 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_user_id', 'args': {}, 'id': 'call_1e811d92b2474643b042f38d', 'type': 'tool_call'}执行结果:content='1010' name='get_user_id' tool_call_id='call_1e811d92b2474643b042f38d'
+2026-03-08 16:19:49 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有5条消息
+2026-03-08 16:19:49 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|1010
+2026-03-08 16:19:51 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_current_month
+2026-03-08 16:19:51 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{}
+2026-03-08 16:19:51 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_current_month', 'args': {}, 'id': 'call_86d0c2f4db3a49be956cadfe', 'type': 'tool_call'}执行结果:content='2025-07' name='get_current_month' tool_call_id='call_86d0c2f4db3a49be956cadfe'
+2026-03-08 16:19:51 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有7条消息
+2026-03-08 16:19:51 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|2025-07
+2026-03-08 16:19:54 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:fetch_external_data
+2026-03-08 16:19:54 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'user_id': '1010', 'month': '2025-07'}
+2026-03-08 16:19:54 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'fetch_external_data', 'args': {'user_id': '1010', 'month': '2025-07'}, 'id': 'call_6d729b96500d4925ad89d8e5', 'type': 'tool_call'}执行结果:content='{"特征": "130㎡四居 | 三代同堂 | 通体砖", "效率": "覆盖率:81%\\\\n手动辅助清扫:4次/天\\\\n定时清扫使用率:55%", "耗材": "电池衰减:16%\\\\n边刷寿命:剩余40天", "对比": "大户型中操作便捷性低于同类22%"}' name='fetch_external_data' tool_call_id='call_6d729b96500d4925ad89d8e5'
+2026-03-08 16:19:55 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有9条消息
+2026-03-08 16:19:55 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|{"特征": "130㎡四居 | 三代同堂 | 通体砖", "效率": "覆盖率:81%\\n手动辅助清扫:4次/天\\n定时清扫使用率:55%", "耗材": "电池衰减:16%\\n边刷寿命:剩余40天", "对比": "大户型中操作便捷性低于同类22%"}
+2026-03-08 16:19:59 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:rag_summarize
+2026-03-08 16:19:59 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'query': '大户型扫地机器人使用建议'}
+2026-03-08 16:20:01 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'rag_summarize', 'args': {'query': '大户型扫地机器人使用建议'}, 'id': 'call_a02cb5a514f64f6d9b21cc80', 'type': 'tool_call'}执行结果:content='大户型房屋建议采用“分区清扫”，分批次清扫不同区域；若机器人续航不足，应设置“断点续扫”，完成后自动回充。' name='rag_summarize' tool_call_id='call_a02cb5a514f64f6d9b21cc80'
+2026-03-08 16:20:02 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有11条消息
+2026-03-08 16:20:02 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|大户型房屋建议采用“分区清扫”，分批次清扫不同区域；若机器人续航不足，应设置“断点续扫”，完成后自动回充。
+2026-03-08 16:20:05 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:rag_summarize
+2026-03-08 16:20:05 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'query': '边刷更换周期和保养建议'}
+2026-03-08 16:20:08 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'rag_summarize', 'args': {'query': '边刷更换周期和保养建议'}, 'id': 'call_785cbbb838614c888291c30e', 'type': 'tool_call'}执行结果:content='边刷更换周期为3-6个月，当刷毛变形、断裂或清扫效果下降时应及时更换。保养建议包括定期检查边刷状态，若磨损导致边角清扫不彻底，应拆卸机身底部边刷卡扣进行更换，安装时按压卡紧即可。' name='rag_summarize' tool_call_id='call_785cbbb838614c888291c30e'
+2026-03-08 16:20:10 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有13条消息
+2026-03-08 16:20:10 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|边刷更换周期为3-6个月，当刷毛变形、断裂或清扫效果下降时应及时更换。保养建议包括定期检查边刷状态，若磨损导致边角清扫不彻底，应拆卸机身底部边刷卡扣进行更换，安装时按压卡紧即可。
+2026-03-09 11:32:00 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-09 11:32:00 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|以我当地的天气该如何保养机器人?
+2026-03-09 11:32:04 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_user_location
+2026-03-09 11:32:04 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{}
+2026-03-09 11:32:04 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_user_location', 'args': {}, 'id': 'call_90196771411148b9aa4cbdd5', 'type': 'tool_call'}执行结果:content='上海' name='get_user_location' tool_call_id='call_90196771411148b9aa4cbdd5'
+2026-03-09 11:32:04 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-09 11:32:04 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|上海
+2026-03-09 11:32:08 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_weather
+2026-03-09 11:32:08 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'city': '上海'}
+2026-03-09 11:32:08 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_weather', 'args': {'city': '上海'}, 'id': 'call_3774135696fa497e80be7c7a', 'type': 'tool_call'}执行结果:content='城市上海天气为晴天，气温 26 度，空气湿度 50%' name='get_weather' tool_call_id='call_3774135696fa497e80be7c7a'
+2026-03-09 11:32:08 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有5条消息
+2026-03-09 11:32:08 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|城市上海天气为晴天，气温 26 度，空气湿度 50%
+2026-03-09 11:32:11 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:rag_summarize
+2026-03-09 11:32:11 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'query': '扫地机器人在晴天26度50%湿度环境下的保养方法'}
+2026-03-09 11:32:14 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'rag_summarize', 'args': {'query': '扫地机器人在晴天26度50%湿度环境下的保养方法'}, 'id': 'call_4946e418950442a481891e57', 'type': 'tool_call'}执行结果:content='在晴天26度50%湿度环境下，扫地机器人使用后应每日用干软布擦拭机身外壳，去除灰尘和水渍；每次清扫完成后及时清理防撞条缝隙中的毛发和线头，防止卡扣卡顿。' name='rag_summarize' tool_call_id='call_4946e418950442a481891e57'
+2026-03-09 11:32:14 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有7条消息
+2026-03-09 11:32:14 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|在晴天26度50%湿度环境下，扫地机器人使用后应每日用干软布擦拭机身外壳，去除灰尘和水渍；每次清扫完成后及时清理防撞条缝隙中的毛发和线头，防止卡扣卡顿。
+2026-03-09 11:59:23 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-09 11:59:23 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|以我当前城市的天气该如何保养机器人
+2026-03-09 11:59:28 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_user_location
+2026-03-09 11:59:28 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{}
+2026-03-09 11:59:28 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_user_location', 'args': {}, 'id': 'call_4ac525e12dc6430d9fe6166b', 'type': 'tool_call'}执行结果:content='深圳' name='get_user_location' tool_call_id='call_4ac525e12dc6430d9fe6166b'
+2026-03-09 11:59:28 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-09 11:59:28 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|深圳
+2026-03-09 11:59:32 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_weather
+2026-03-09 11:59:32 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'city': '深圳'}
+2026-03-09 11:59:32 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_weather', 'args': {'city': '深圳'}, 'id': 'call_585b6ac64da14b4392b231ce', 'type': 'tool_call'}执行结果:content='城市深圳天气为晴天，气温 26 度，空气湿度 50%' name='get_weather' tool_call_id='call_585b6ac64da14b4392b231ce'
+2026-03-09 11:59:32 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有5条消息
+2026-03-09 11:59:32 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|城市深圳天气为晴天，气温 26 度，空气湿度 50%
+2026-03-09 11:59:37 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:rag_summarize
+2026-03-09 11:59:37 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'query': '晴天26度50%湿度环境下扫地机器人保养建议'}
+2026-03-09 11:59:40 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'rag_summarize', 'args': {'query': '晴天26度50%湿度环境下扫地机器人保养建议'}, 'id': 'call_18be27ffcce5446c83cbcd91', 'type': 'tool_call'}执行结果:content='在晴天26度、50%湿度环境下，建议每日使用后用干软布擦拭机器人机身外壳，去除灰尘和水渍；每次清扫完成后及时清理防撞条缝隙中的毛发和线头，防止卡扣卡顿。' name='rag_summarize' tool_call_id='call_18be27ffcce5446c83cbcd91'
+2026-03-09 11:59:41 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有7条消息
+2026-03-09 11:59:41 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|在晴天26度、50%湿度环境下，建议每日使用后用干软布擦拭机器人机身外壳，去除灰尘和水渍；每次清扫完成后及时清理防撞条缝隙中的毛发和线头，防止卡扣卡顿。
+2026-03-09 12:02:40 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-09 12:02:40 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|以我当地的天气该如何保养机器人?
+2026-03-09 12:02:44 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_user_location
+2026-03-09 12:02:44 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{}
+2026-03-09 12:02:44 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_user_location', 'args': {}, 'id': 'call_c785a49c806447a9b7b87bb9', 'type': 'tool_call'}执行结果:content='广州' name='get_user_location' tool_call_id='call_c785a49c806447a9b7b87bb9'
+2026-03-09 12:02:44 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-09 12:02:44 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|广州
+2026-03-09 12:02:50 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_weather
+2026-03-09 12:02:50 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'city': '广州'}
+2026-03-09 12:02:50 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_weather', 'args': {'city': '广州'}, 'id': 'call_492d5d5877da4c4783b21256', 'type': 'tool_call'}执行结果:content='城市广州天气为晴天，气温 26 度，空气湿度 50%' name='get_weather' tool_call_id='call_492d5d5877da4c4783b21256'
+2026-03-09 12:02:50 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有5条消息
+2026-03-09 12:02:50 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|城市广州天气为晴天，气温 26 度，空气湿度 50%
+2026-03-09 12:02:53 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:rag_summarize
+2026-03-09 12:02:53 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'query': '潮湿环境 扫地机器人 保养'}
+2026-03-09 12:02:57 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'rag_summarize', 'args': {'query': '潮湿环境 扫地机器人 保养'}, 'id': 'call_d39b59639f2c4c1eb419d07c', 'type': 'tool_call'}执行结果:content='在潮湿环境中使用扫地机器人，每次清扫完成后应及时用干软布擦拭机身外壳，去除水渍，避免污渍附着硬化；同时清理机身底部、轮组及防撞条缝隙中的泥沙、毛发等杂物，防止配件磨损或卡顿。' name='rag_summarize' tool_call_id='call_d39b59639f2c4c1eb419d07c'
+2026-03-09 12:02:57 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有7条消息
+2026-03-09 12:02:57 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|在潮湿环境中使用扫地机器人，每次清扫完成后应及时用干软布擦拭机身外壳，去除水渍，避免污渍附着硬化；同时清理机身底部、轮组及防撞条缝隙中的泥沙、毛发等杂物，防止配件磨损或卡顿。
+2026-03-09 14:47:52 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-09 14:47:52 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|在我当前城市的天气机器人如何保养
+2026-03-09 14:47:55 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_user_location
+2026-03-09 14:47:55 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{}
+2026-03-09 14:47:55 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_user_location', 'args': {}, 'id': 'call_948c0e05e383484eb26dcec5', 'type': 'tool_call'}执行结果:content='上海' name='get_user_location' tool_call_id='call_948c0e05e383484eb26dcec5'
+2026-03-09 14:47:55 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-09 14:47:55 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|上海
+2026-03-09 14:47:58 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_weather
+2026-03-09 14:47:58 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'city': '上海'}
+2026-03-09 14:47:58 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_weather', 'args': {'city': '上海'}, 'id': 'call_c10ce47c856047d990b957f1', 'type': 'tool_call'}执行结果:content='城市上海天气为晴天，气温 26 度，空气湿度 50%' name='get_weather' tool_call_id='call_c10ce47c856047d990b957f1'
+2026-03-09 14:47:58 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有5条消息
+2026-03-09 14:47:58 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|城市上海天气为晴天，气温 26 度，空气湿度 50%
+2026-03-09 14:48:02 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:rag_summarize
+2026-03-09 14:48:02 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'query': '晴天26度50%湿度环境下扫地机器人保养建议'}
+2026-03-09 14:48:05 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'rag_summarize', 'args': {'query': '晴天26度50%湿度环境下扫地机器人保养建议'}, 'id': 'call_8edb660162f5444e9f67acfd', 'type': 'tool_call'}执行结果:content='在晴天26度、50%湿度环境下，扫地机器人保养建议包括：每日使用后用干软布擦拭机身外壳，去除灰尘和水渍；每次清扫完成后及时清理防撞条缝隙中的毛发和线头，防止卡扣卡顿。' name='rag_summarize' tool_call_id='call_8edb660162f5444e9f67acfd'
+2026-03-09 14:48:05 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有7条消息
+2026-03-09 14:48:05 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|在晴天26度、50%湿度环境下，扫地机器人保养建议包括：每日使用后用干软布擦拭机身外壳，去除灰尘和水渍；每次清扫完成后及时清理防撞条缝隙中的毛发和线头，防止卡扣卡顿。
+2026-03-09 15:09:00 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-09 15:09:00 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|我想要查询你们平台都有什么菜品呢?
+2026-03-09 15:15:48 INFO [agent] [vector_store.py:260] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\扫地机器人100问.pdf内容已存入知识库中
+2026-03-09 15:15:52 INFO [agent] [vector_store.py:260] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\扫地机器人100问2.txt内容已存入知识库中
+2026-03-09 15:15:57 INFO [agent] [vector_store.py:260] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\扫拖一体机器人100问.txt内容已存入知识库中
+2026-03-09 15:16:06 INFO [agent] [vector_store.py:260] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\故障排除.txt内容已存入知识库中
+2026-03-09 15:16:11 INFO [agent] [vector_store.py:260] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\维护保养.txt内容已存入知识库中
+2026-03-09 15:16:12 INFO [agent] [vector_store.py:260] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\苍穹外卖.txt内容已存入知识库中
+2026-03-09 15:16:17 INFO [agent] [vector_store.py:260] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\选购指南.txt内容已存入知识库中
+2026-03-09 15:16:44 INFO [agent] [vector_store.py:210] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\扫地机器人100问.pdf内容已经存在知识库中，跳过
+2026-03-09 15:16:44 INFO [agent] [vector_store.py:210] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\扫地机器人100问2.txt内容已经存在知识库中，跳过
+2026-03-09 15:16:44 INFO [agent] [vector_store.py:210] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\扫拖一体机器人100问.txt内容已经存在知识库中，跳过
+2026-03-09 15:16:44 INFO [agent] [vector_store.py:210] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\故障排除.txt内容已经存在知识库中，跳过
+2026-03-09 15:16:44 INFO [agent] [vector_store.py:210] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\维护保养.txt内容已经存在知识库中，跳过
+2026-03-09 15:16:44 INFO [agent] [vector_store.py:210] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\苍穹外卖.txt内容已经存在知识库中，跳过
+2026-03-09 15:16:44 INFO [agent] [vector_store.py:210] - [加载知识库]D:\PycharmProjects\py的AI大模型RAG与智能体开发之Agent项目\data\选购指南.txt内容已经存在知识库中，跳过
+2026-03-09 15:16:54 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-09 15:16:54 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|我想要查询你们平台都有什么菜品呢?
+2026-03-09 15:17:12 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-09 15:17:12 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|我想要查询你们平台都有什么菜品呢?
+2026-03-09 15:25:10 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-09 15:25:10 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|扫地机器人在我所在的地区的气温下如何保养
+2026-03-09 15:25:16 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_user_location
+2026-03-09 15:25:16 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{}
+2026-03-09 15:25:16 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_user_location', 'args': {}, 'id': 'call_8d302231fae045f292177e56', 'type': 'tool_call'}执行结果:content='广州' name='get_user_location' tool_call_id='call_8d302231fae045f292177e56'
+2026-03-09 15:25:16 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-09 15:25:16 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|广州
+2026-03-09 15:25:19 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_weather
+2026-03-09 15:25:19 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'city': '广州'}
+2026-03-09 15:25:19 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_weather', 'args': {'city': '广州'}, 'id': 'call_3f74867f55c44ca3bebbab7a', 'type': 'tool_call'}执行结果:content='城市广州天气为晴天，气温 26 度，空气湿度 50%' name='get_weather' tool_call_id='call_3f74867f55c44ca3bebbab7a'
+2026-03-09 15:25:19 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有5条消息
+2026-03-09 15:25:19 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|城市广州天气为晴天，气温 26 度，空气湿度 50%
+2026-03-09 15:25:24 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:rag_summarize
+2026-03-09 15:25:24 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'query': '扫地机器人在26度温度和50%湿度环境下如何保养'}
+2026-03-09 15:25:33 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'rag_summarize', 'args': {'query': '扫地机器人在26度温度和50%湿度环境下如何保养'}, 'id': 'call_9676909abe06424aa0398c4f', 'type': 'tool_call'}执行结果:content='在26度温度和50%湿度环境下，扫地机器人应每日使用后用干软布擦拭机身外壳，去除灰尘和水渍，避免污渍附着硬化；每次清扫完成后，及时清理防撞条缝隙中的毛发和线头，防止卡扣卡顿影响回弹。' name='rag_summarize' tool_call_id='call_9676909abe06424aa0398c4f'
+2026-03-09 15:25:33 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有7条消息
+2026-03-09 15:25:33 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|在26度温度和50%湿度环境下，扫地机器人应每日使用后用干软布擦拭机身外壳，去除灰尘和水渍，避免污渍附着硬化；每次清扫完成后，及时清理防撞条缝隙中的毛发和线头，防止卡扣卡顿影响回弹。
+2026-03-09 15:26:00 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-09 15:26:00 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|我想查询你们平台的菜品都有啥
+2026-03-09 15:26:02 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_category_list
+2026-03-09 15:26:02 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'self': '{}', 'category_type': 1}
+2026-03-09 15:26:02 ERROR [agent] [middleware.py:95] - [tool monitor] 工具{'name': 'query_category_list', 'args': {'self': '{}', 'category_type': 1}, 'id': 'call_49a072d930b54f119dacbfa6', 'type': 'tool_call'}执行错误:StructuredTool._run() got multiple values for argument 'self'
+2026-03-09 15:27:38 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-09 15:27:38 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|我想查询你们平台的菜品都有啥
+2026-03-09 15:27:40 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_category_list
+2026-03-09 15:27:40 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_type': 1}
+2026-03-09 15:27:40 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_category_list', 'args': {'category_type': 1}, 'id': 'call_65f6d07d2cd449d1906c5b4c', 'type': 'tool_call'}执行结果:content='查询异常：401 Client Error:  for url: http://localhost:8080/admin/category/list?type=1' name='query_category_list' tool_call_id='call_65f6d07d2cd449d1906c5b4c'
+2026-03-09 15:27:40 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-09 15:27:40 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|查询异常：401 Client Error:  for url: http://localhost:8080/admin/category/list?type=1
+2026-03-09 15:32:12 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-09 15:32:12 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|我想查询你们平台的菜品都有啥
+2026-03-09 15:32:15 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_category_list
+2026-03-09 15:32:15 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_type': 1}
+2026-03-09 15:32:15 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_category_list', 'args': {'category_type': 1}, 'id': 'call_dfdf1328acf64736b85f34d2', 'type': 'tool_call'}执行结果:content='查询异常：401 Client Error:  for url: http://localhost:8080/admin/category/list?type=1' name='query_category_list' tool_call_id='call_dfdf1328acf64736b85f34d2'
+2026-03-09 15:32:15 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-09 15:32:15 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|查询异常：401 Client Error:  for url: http://localhost:8080/admin/category/list?type=1
+2026-03-10 10:41:21 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-10 10:41:21 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|我想查询你们平台的菜品都有啥
+2026-03-10 10:41:23 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_category_list
+2026-03-10 10:41:23 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_type': 1}
+2026-03-10 10:41:23 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_category_list', 'args': {'category_type': 1}, 'id': 'call_0fbe3ded7063476ea621861d', 'type': 'tool_call'}执行结果:content='查询异常：401 Client Error:  for url: http://localhost:8080/admin/category/list?type=1' name='query_category_list' tool_call_id='call_0fbe3ded7063476ea621861d'
+2026-03-10 10:41:23 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-10 10:41:23 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|查询异常：401 Client Error:  for url: http://localhost:8080/admin/category/list?type=1
+2026-03-10 10:51:16 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-10 10:51:16 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|我想查询你们平台的菜品都有啥
+2026-03-10 10:51:20 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_category_list
+2026-03-10 10:51:20 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_type': 1}
+2026-03-10 10:51:20 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_category_list', 'args': {'category_type': 1}, 'id': 'call_e07409617347453492f26eaa', 'type': 'tool_call'}执行结果:content='查询异常：401 Client Error:  for url: http://localhost:8080/admin/category/list?type=1' name='query_category_list' tool_call_id='call_e07409617347453492f26eaa'
+2026-03-10 10:51:20 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-10 10:51:20 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|查询异常：401 Client Error:  for url: http://localhost:8080/admin/category/list?type=1
+2026-03-10 10:51:44 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-10 10:51:44 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|我想查询你们平台的菜品都有啥
+2026-03-10 10:51:48 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_category_list
+2026-03-10 10:51:48 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_type': 1}
+2026-03-10 10:51:49 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_category_list', 'args': {'category_type': 1}, 'id': 'call_93f526f1a77041b0ace6b57c', 'type': 'tool_call'}执行结果:content='查询异常：401 Client Error:  for url: http://localhost:8080/admin/category/list?type=1' name='query_category_list' tool_call_id='call_93f526f1a77041b0ace6b57c'
+2026-03-10 10:51:49 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-10 10:51:49 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|查询异常：401 Client Error:  for url: http://localhost:8080/admin/category/list?type=1
+2026-03-10 10:52:47 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-10 10:52:47 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|我想查询你们平台的菜品都有啥
+2026-03-10 10:52:55 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_category_list
+2026-03-10 10:52:55 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_type': 1}
+2026-03-10 10:52:59 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_category_list', 'args': {'category_type': 1}, 'id': 'call_a9ab01027e9a4140bd27067e', 'type': 'tool_call'}执行结果:content='查询异常：HTTPConnectionPool(host=\'localhost\', port=80): Max retries exceeded with url: /admin/category/list?type=1 (Caused by NewConnectionError("HTTPConnection(host=\'localhost\', port=80): Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。"))' name='query_category_list' tool_call_id='call_a9ab01027e9a4140bd27067e'
+2026-03-10 10:52:59 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-10 10:52:59 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|查询异常：HTTPConnectionPool(host='localhost', port=80): Max retries exceeded with url: /admin/category/list?type=1 (Caused by NewConnectionError("HTTPConnection(host='localhost', port=80): Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。"))
+2026-03-10 10:55:29 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-10 10:55:29 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|我想查询你们平台的菜品都有啥
+2026-03-10 10:55:36 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_category_list
+2026-03-10 10:55:36 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_type': 1}
+2026-03-10 10:55:40 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_category_list', 'args': {'category_type': 1}, 'id': 'call_1b8821292e7e47aca09b2baf', 'type': 'tool_call'}执行结果:content='查询异常：HTTPConnectionPool(host=\'localhost\', port=80): Max retries exceeded with url: /admin/category/list?type=1 (Caused by NewConnectionError("HTTPConnection(host=\'localhost\', port=80): Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。"))' name='query_category_list' tool_call_id='call_1b8821292e7e47aca09b2baf'
+2026-03-10 10:55:40 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-10 10:55:40 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|查询异常：HTTPConnectionPool(host='localhost', port=80): Max retries exceeded with url: /admin/category/list?type=1 (Caused by NewConnectionError("HTTPConnection(host='localhost', port=80): Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。"))
+2026-03-10 10:59:39 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-10 10:59:39 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|我想查询你们平台的菜品都有啥
+2026-03-10 10:59:41 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_category_list
+2026-03-10 10:59:41 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_type': 1}
+2026-03-10 10:59:41 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_category_list', 'args': {'category_type': 1}, 'id': 'call_4bcd665a58c34516ba44c2cd', 'type': 'tool_call'}执行结果:content='查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1' name='query_category_list' tool_call_id='call_4bcd665a58c34516ba44c2cd'
+2026-03-10 10:59:41 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-10 10:59:41 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1
+2026-03-10 11:04:36 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-10 11:04:36 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|我想查询你们平台的菜品都有啥
+2026-03-10 11:04:43 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_category_list
+2026-03-10 11:04:43 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_type': 1}
+2026-03-10 11:04:43 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_category_list', 'args': {'category_type': 1}, 'id': 'call_a41bcc03d5754aaf8c07a334', 'type': 'tool_call'}执行结果:content='查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1' name='query_category_list' tool_call_id='call_a41bcc03d5754aaf8c07a334'
+2026-03-10 11:04:43 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-10 11:04:43 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1
+2026-03-10 11:10:23 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-10 11:10:23 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|我想查询你们平台的菜品都有啥
+2026-03-10 11:10:25 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_category_list
+2026-03-10 11:10:25 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_type': 1}
+2026-03-10 11:10:25 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_category_list', 'args': {'category_type': 1}, 'id': 'call_378d29af6d9240119961d47a', 'type': 'tool_call'}执行结果:content='共查询到 5 个分类:\n\n分类 ID: 1\n分类名称：热销菜品\n类型：菜品\n排序：1\n状态：启用\n\n分类 ID: 24\n分类名称：darling\n类型：菜品\n排序：1\n状态：启用\n\n分类 ID: 2\n分类名称：川菜系列\n类型：菜品\n排序：2\n状态：启用\n\n分类 ID: 3\n分类名称：粤菜系列\n类型：菜品\n排序：3\n状态：启用\n\n分类 ID: 4\n分类名称：主食小吃\n类型：菜品\n排序：4\n状态：启用\n' name='query_category_list' tool_call_id='call_378d29af6d9240119961d47a'
+2026-03-10 11:10:25 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-10 11:10:25 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|共查询到 5 个分类:
+
+分类 ID: 1
+分类名称：热销菜品
+类型：菜品
+排序：1
+状态：启用
+
+分类 ID: 24
+分类名称：darling
+类型：菜品
+排序：1
+状态：启用
+
+分类 ID: 2
+分类名称：川菜系列
+类型：菜品
+排序：2
+状态：启用
+
+分类 ID: 3
+分类名称：粤菜系列
+类型：菜品
+排序：3
+状态：启用
+
+分类 ID: 4
+分类名称：主食小吃
+类型：菜品
+排序：4
+状态：启用
+2026-03-10 11:10:30 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_dish_list
+2026-03-10 11:10:30 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_id': 1}
+2026-03-10 11:10:30 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_dish_list', 'args': {'category_id': 1}, 'id': 'call_86decd641e644f19b85c0f3a', 'type': 'tool_call'}执行结果:content='分类 1 共有 2 个菜品:\n\n菜品 ID: 9\n菜品名称：酸辣土豆丝\n价格：¥10.0\n分类 ID: 1\n图片：/images/sldts.jpg\n简介：家常小菜，酸辣开胃\n状态：在售\n\n菜品 ID: 10\n菜品名称：西红柿炒鸡蛋\n价格：¥14.0\n分类 ID: 1\n图片：/images/xhscjd.jpg\n简介：营养搭配，老少皆宜\n状态：在售\n' name='query_dish_list' tool_call_id='call_86decd641e644f19b85c0f3a'
+2026-03-10 11:10:30 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有5条消息
+2026-03-10 11:10:30 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|分类 1 共有 2 个菜品:
+
+菜品 ID: 9
+菜品名称：酸辣土豆丝
+价格：¥10.0
+分类 ID: 1
+图片：/images/sldts.jpg
+简介：家常小菜，酸辣开胃
+状态：在售
+
+菜品 ID: 10
+菜品名称：西红柿炒鸡蛋
+价格：¥14.0
+分类 ID: 1
+图片：/images/xhscjd.jpg
+简介：营养搭配，老少皆宜
+状态：在售
+2026-03-10 11:10:32 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_dish_list
+2026-03-10 11:10:32 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_id': 24}
+2026-03-10 11:10:32 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_dish_list', 'args': {'category_id': 24}, 'id': 'call_fff1f8046f1a495c8f9a3554', 'type': 'tool_call'}执行结果:content='分类 24 共有 2 个菜品:\n\n菜品 ID: 72\n菜品名称：02\n价格：¥100.0\n分类 ID: 24\n图片：https://02skystudybucket.oss-cn-beijing.aliyuncs.com/69fc1770-bd31-49d6-890c-80da236e63cd.jpg\n简介：02darling\n状态：在售\n\n菜品 ID: 79\n菜品名称：111\n价格：¥11113.0\n分类 ID: 24\n图片：https://02skystudybucket.oss-cn-beijing.aliyuncs.com/8acec59e-81a6-4067-a343-5335d526a108.jpg\n简介：111\n状态：停售\n' name='query_dish_list' tool_call_id='call_fff1f8046f1a495c8f9a3554'
+2026-03-10 11:10:32 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有7条消息
+2026-03-10 11:10:32 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|分类 24 共有 2 个菜品:
+
+菜品 ID: 72
+菜品名称：02
+价格：¥100.0
+分类 ID: 24
+图片：https://02skystudybucket.oss-cn-beijing.aliyuncs.com/69fc1770-bd31-49d6-890c-80da236e63cd.jpg
+简介：02darling
+状态：在售
+
+菜品 ID: 79
+菜品名称：111
+价格：¥11113.0
+分类 ID: 24
+图片：https://02skystudybucket.oss-cn-beijing.aliyuncs.com/8acec59e-81a6-4067-a343-5335d526a108.jpg
+简介：111
+状态：停售
+2026-03-10 11:10:33 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_dish_list
+2026-03-10 11:10:33 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_id': 2}
+2026-03-10 11:10:33 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_dish_list', 'args': {'category_id': 2}, 'id': 'call_d1c83072daf24c0bbd23a2dd', 'type': 'tool_call'}执行结果:content='分类 2 共有 3 个菜品:\n\n菜品 ID: 1\n菜品名称：鱼香肉丝\n价格：¥18.0\n分类 ID: 2\n图片：/images/yxrs.jpg\n简介：经典川菜，酸甜可口\n状态：在售\n\n菜品 ID: 2\n菜品名称：宫保鸡丁\n价格：¥20.0\n分类 ID: 2\n图片：/images/gbjd.jpg\n简介：传统川菜，麻辣鲜香\n状态：在售\n\n菜品 ID: 3\n菜品名称：麻婆豆腐\n价格：¥12.0\n分类 ID: 2\n图片：/images/mpdf.jpg\n简介：四川名菜，麻辣嫩滑\n状态：在售\n' name='query_dish_list' tool_call_id='call_d1c83072daf24c0bbd23a2dd'
+2026-03-10 11:10:33 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有9条消息
+2026-03-10 11:10:33 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|分类 2 共有 3 个菜品:
+
+菜品 ID: 1
+菜品名称：鱼香肉丝
+价格：¥18.0
+分类 ID: 2
+图片：/images/yxrs.jpg
+简介：经典川菜，酸甜可口
+状态：在售
+
+菜品 ID: 2
+菜品名称：宫保鸡丁
+价格：¥20.0
+分类 ID: 2
+图片：/images/gbjd.jpg
+简介：传统川菜，麻辣鲜香
+状态：在售
+
+菜品 ID: 3
+菜品名称：麻婆豆腐
+价格：¥12.0
+分类 ID: 2
+图片：/images/mpdf.jpg
+简介：四川名菜，麻辣嫩滑
+状态：在售
+2026-03-10 11:10:35 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_dish_list
+2026-03-10 11:10:35 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_id': 3}
+2026-03-10 11:10:35 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_dish_list', 'args': {'category_id': 3}, 'id': 'call_fe9e97b9ae674e628bf93847', 'type': 'tool_call'}执行结果:content='分类 3 共有 3 个菜品:\n\n菜品 ID: 4\n菜品名称：糖醋里脊\n价格：¥22.0\n分类 ID: 3\n图片：/images/tclj.jpg\n简介：经典粤菜，外酥里嫩\n状态：在售\n\n菜品 ID: 5\n菜品名称：清蒸鲈鱼\n价格：¥38.0\n分类 ID: 3\n图片：/images/qzly.jpg\n简介：清淡鲜美，营养丰富\n状态：在售\n\n菜品 ID: 6\n菜品名称：白切鸡\n价格：¥28.0\n分类 ID: 3\n图片：/images/bqj.jpg\n简介：广东特色，皮爽肉滑\n状态：在售\n' name='query_dish_list' tool_call_id='call_fe9e97b9ae674e628bf93847'
+2026-03-10 11:10:35 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有11条消息
+2026-03-10 11:10:35 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|分类 3 共有 3 个菜品:
+
+菜品 ID: 4
+菜品名称：糖醋里脊
+价格：¥22.0
+分类 ID: 3
+图片：/images/tclj.jpg
+简介：经典粤菜，外酥里嫩
+状态：在售
+
+菜品 ID: 5
+菜品名称：清蒸鲈鱼
+价格：¥38.0
+分类 ID: 3
+图片：/images/qzly.jpg
+简介：清淡鲜美，营养丰富
+状态：在售
+
+菜品 ID: 6
+菜品名称：白切鸡
+价格：¥28.0
+分类 ID: 3
+图片：/images/bqj.jpg
+简介：广东特色，皮爽肉滑
+状态：在售
+2026-03-10 11:10:37 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_dish_list
+2026-03-10 11:10:37 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_id': 4}
+2026-03-10 11:10:37 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_dish_list', 'args': {'category_id': 4}, 'id': 'call_6bbec5e77e8c43518ebe1824', 'type': 'tool_call'}执行结果:content='分类 4 共有 2 个菜品:\n\n菜品 ID: 7\n菜品名称：米饭\n价格：¥2.0\n分类 ID: 4\n图片：/images/mf.jpg\n简介：东北大米，香甜可口\n状态：在售\n\n菜品 ID: 8\n菜品名称：馒头\n价格：¥1.5\n分类 ID: 4\n图片：/images/mt.jpg\n简介：手工馒头，松软可口\n状态：在售\n' name='query_dish_list' tool_call_id='call_6bbec5e77e8c43518ebe1824'
+2026-03-10 11:10:37 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有13条消息
+2026-03-10 11:10:37 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|分类 4 共有 2 个菜品:
+
+菜品 ID: 7
+菜品名称：米饭
+价格：¥2.0
+分类 ID: 4
+图片：/images/mf.jpg
+简介：东北大米，香甜可口
+状态：在售
+
+菜品 ID: 8
+菜品名称：馒头
+价格：¥1.5
+分类 ID: 4
+图片：/images/mt.jpg
+简介：手工馒头，松软可口
+状态：在售
+2026-03-10 11:22:39 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-10 11:22:39 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|我想查询你们平台的菜品都有啥
+2026-03-10 11:22:42 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_category_list
+2026-03-10 11:22:42 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_type': 1}
+2026-03-10 11:22:42 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_category_list', 'args': {'category_type': 1}, 'id': 'call_914a0a39896b4a339cf6dc88', 'type': 'tool_call'}执行结果:content='查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1' name='query_category_list' tool_call_id='call_914a0a39896b4a339cf6dc88'
+2026-03-10 11:22:42 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-10 11:22:42 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1
+2026-03-10 11:24:29 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-10 11:24:29 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|我想查询你们平台的菜品都有啥
+2026-03-10 11:24:34 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_category_list
+2026-03-10 11:24:34 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_type': 1}
+2026-03-10 11:24:34 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_category_list', 'args': {'category_type': 1}, 'id': 'call_46364fde6ef54a638d80512c', 'type': 'tool_call'}执行结果:content='查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1' name='query_category_list' tool_call_id='call_46364fde6ef54a638d80512c'
+2026-03-10 11:24:34 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-10 11:24:34 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1
+2026-03-10 14:55:10 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-10 14:55:10 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|本地天气如何保养机器人
+2026-03-10 14:55:15 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_user_location
+2026-03-10 14:55:15 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{}
+2026-03-10 14:55:15 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_user_location', 'args': {}, 'id': 'call_6ca3fe7ed0e241338a68d216', 'type': 'tool_call'}执行结果:content='深圳' name='get_user_location' tool_call_id='call_6ca3fe7ed0e241338a68d216'
+2026-03-10 14:55:15 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-10 14:55:15 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|深圳
+2026-03-10 14:55:19 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_weather
+2026-03-10 14:55:19 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'city': '深圳'}
+2026-03-10 14:55:19 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_weather', 'args': {'city': '深圳'}, 'id': 'call_0dc3487f36614dd2a0148107', 'type': 'tool_call'}执行结果:content='城市深圳天气为晴天，气温 26 度，空气湿度 50%' name='get_weather' tool_call_id='call_0dc3487f36614dd2a0148107'
+2026-03-10 14:55:19 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有5条消息
+2026-03-10 14:55:19 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|城市深圳天气为晴天，气温 26 度，空气湿度 50%
+2026-03-10 14:55:23 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:rag_summarize
+2026-03-10 14:55:23 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'query': '扫地机器人在晴天、26度、50%湿度环境下的保养建议'}
+2026-03-10 14:55:27 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'rag_summarize', 'args': {'query': '扫地机器人在晴天、26度、50%湿度环境下的保养建议'}, 'id': 'call_8a9e5618c653400eb7027bee', 'type': 'tool_call'}执行结果:content='在晴天、26度、50%湿度环境下，扫地机器人应每日使用后用干软布擦拭机身外壳，去除灰尘和水渍，避免污渍硬化；每次清扫完成后及时清理防撞条缝隙中的毛发和线头，防止卡扣卡顿影响回弹。' name='rag_summarize' tool_call_id='call_8a9e5618c653400eb7027bee'
+2026-03-10 14:55:27 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有7条消息
+2026-03-10 14:55:27 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|在晴天、26度、50%湿度环境下，扫地机器人应每日使用后用干软布擦拭机身外壳，去除灰尘和水渍，避免污渍硬化；每次清扫完成后及时清理防撞条缝隙中的毛发和线头，防止卡扣卡顿影响回弹。
+2026-03-10 14:56:53 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-10 14:56:53 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|我想了解有关外卖的信息
+2026-03-10 14:57:31 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-10 14:57:31 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|我想查询菜品分类
+2026-03-10 14:57:33 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_category_list
+2026-03-10 14:57:33 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_type': 1}
+2026-03-10 14:57:33 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_category_list', 'args': {'category_type': 1}, 'id': 'call_12f5787925fd47fca6773a98', 'type': 'tool_call'}执行结果:content='查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1' name='query_category_list' tool_call_id='call_12f5787925fd47fca6773a98'
+2026-03-10 14:57:33 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-10 14:57:33 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1
+2026-03-10 14:59:36 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-10 14:59:36 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|我想查询菜品分类
+2026-03-10 14:59:41 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_category_list
+2026-03-10 14:59:41 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_type': 1}
+2026-03-10 14:59:41 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_category_list', 'args': {'category_type': 1}, 'id': 'call_f10abdf817754f7b82dfbccb', 'type': 'tool_call'}执行结果:content='查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1' name='query_category_list' tool_call_id='call_f10abdf817754f7b82dfbccb'
+2026-03-10 14:59:41 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-10 14:59:41 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1
+2026-03-10 15:02:02 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-10 15:02:02 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|我想查询菜品分类
+2026-03-10 15:02:04 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_category_list
+2026-03-10 15:02:04 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_type': 1}
+2026-03-10 15:02:04 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_category_list', 'args': {'category_type': 1}, 'id': 'call_14a9d3f090e34d40a15f8cb0', 'type': 'tool_call'}执行结果:content='查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1' name='query_category_list' tool_call_id='call_14a9d3f090e34d40a15f8cb0'
+2026-03-10 15:02:04 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-10 15:02:04 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1
+2026-03-10 15:28:15 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-10 15:28:15 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|我想查询菜品分类
+2026-03-10 15:28:20 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_category_list
+2026-03-10 15:28:20 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_type': 1}
+2026-03-10 15:28:20 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_category_list', 'args': {'category_type': 1}, 'id': 'call_ec76002f1fd1438ca80e0e64', 'type': 'tool_call'}执行结果:content='查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1' name='query_category_list' tool_call_id='call_ec76002f1fd1438ca80e0e64'
+2026-03-10 15:28:20 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-10 15:28:20 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1
+2026-03-10 16:03:47 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-10 16:03:47 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|我想了解一下菜品都有什么
+2026-03-10 16:03:49 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_category_list
+2026-03-10 16:03:49 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_type': 1}
+2026-03-10 16:03:49 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_category_list', 'args': {'category_type': 1}, 'id': 'call_513288e130e9405dbf2db81c', 'type': 'tool_call'}执行结果:content='查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1' name='query_category_list' tool_call_id='call_513288e130e9405dbf2db81c'
+2026-03-10 16:03:49 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-10 16:03:49 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1
+2026-03-10 16:14:18 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-10 16:14:18 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|我想了解一下菜品都有什么
+2026-03-10 16:14:26 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_category_list
+2026-03-10 16:14:26 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_type': 1}
+2026-03-10 16:14:26 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_category_list', 'args': {'category_type': 1}, 'id': 'call_1650b5615c31471aa451be94', 'type': 'tool_call'}执行结果:content='查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1' name='query_category_list' tool_call_id='call_1650b5615c31471aa451be94'
+2026-03-10 16:14:26 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-10 16:14:26 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1
+2026-03-10 16:18:37 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-10 16:18:37 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|我想了解一下菜品都有什么
+2026-03-10 16:18:42 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_category_list
+2026-03-10 16:18:42 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_type': 1}
+2026-03-10 16:18:42 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_category_list', 'args': {'category_type': 1}, 'id': 'call_9f198163e5504933aaf10c1b', 'type': 'tool_call'}执行结果:content='查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1' name='query_category_list' tool_call_id='call_9f198163e5504933aaf10c1b'
+2026-03-10 16:18:42 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-10 16:18:42 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1
+2026-03-10 16:21:54 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-10 16:21:54 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|本天气如何保养机器人
+2026-03-10 16:21:58 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_user_location
+2026-03-10 16:21:58 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{}
+2026-03-10 16:21:58 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_user_location', 'args': {}, 'id': 'call_2de33226648b4b719fec7d09', 'type': 'tool_call'}执行结果:content='深圳' name='get_user_location' tool_call_id='call_2de33226648b4b719fec7d09'
+2026-03-10 16:21:58 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-10 16:21:58 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|深圳
+2026-03-10 16:22:01 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:get_weather
+2026-03-10 16:22:01 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'city': '深圳'}
+2026-03-10 16:22:01 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'get_weather', 'args': {'city': '深圳'}, 'id': 'call_ade74262c1594ae5a6446e92', 'type': 'tool_call'}执行结果:content='城市深圳天气为晴天，气温 26 度，空气湿度 50%' name='get_weather' tool_call_id='call_ade74262c1594ae5a6446e92'
+2026-03-10 16:22:01 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有5条消息
+2026-03-10 16:22:01 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|城市深圳天气为晴天，气温 26 度，空气湿度 50%
+2026-03-10 16:22:05 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:rag_summarize
+2026-03-10 16:22:05 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'query': '扫地机器人日常保养 晴天 中等湿度'}
+2026-03-10 16:22:09 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'rag_summarize', 'args': {'query': '扫地机器人日常保养 晴天 中等湿度'}, 'id': 'call_17726b461b7a49599aa06fbc', 'type': 'tool_call'}执行结果:content='晴天中等湿度环境下，扫地机器人日常保养应做到：每日使用后用干软布擦拭机身外壳，去除灰尘和水渍，防止污渍硬化；每次清扫完成后及时清理防撞条缝隙中的毛发和线头，避免卡扣卡顿影响回弹。' name='rag_summarize' tool_call_id='call_17726b461b7a49599aa06fbc'
+2026-03-10 16:22:09 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有7条消息
+2026-03-10 16:22:09 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|晴天中等湿度环境下，扫地机器人日常保养应做到：每日使用后用干软布擦拭机身外壳，去除灰尘和水渍，防止污渍硬化；每次清扫完成后及时清理防撞条缝隙中的毛发和线头，避免卡扣卡顿影响回弹。
+2026-03-10 16:22:51 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-10 16:22:51 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|你们都有什么菜品
+2026-03-10 16:22:54 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_category_list
+2026-03-10 16:22:54 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_type': 1}
+2026-03-10 16:22:54 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_category_list', 'args': {'category_type': 1}, 'id': 'call_cd747f427a264c51ba20b26a', 'type': 'tool_call'}执行结果:content='查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1' name='query_category_list' tool_call_id='call_cd747f427a264c51ba20b26a'
+2026-03-10 16:22:54 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-10 16:22:54 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1
+2026-03-10 16:41:48 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-10 16:41:48 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|你们都有什么菜品
+2026-03-10 16:41:52 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_category_list
+2026-03-10 16:41:52 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_type': 1}
+2026-03-10 16:41:52 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_category_list', 'args': {'category_type': 1}, 'id': 'call_c9656c9f699e4e609dfef97f', 'type': 'tool_call'}执行结果:content='查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1' name='query_category_list' tool_call_id='call_c9656c9f699e4e609dfef97f'
+2026-03-10 16:41:52 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-10 16:41:52 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|查询异常：401 Client Error:  for url: http://127.0.0.1:8080/admin/category/list?type=1
+2026-03-10 16:47:53 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有1条消息
+2026-03-10 16:47:53 DEBUG [agent] [middleware.py:128] - [log_before_model]HumanMessage|你们都有什么菜品
+2026-03-10 16:47:57 INFO [agent] [middleware.py:62] - [tool monitor] 执行工具:query_category_list
+2026-03-10 16:47:57 INFO [agent] [middleware.py:66] - [tool monitor] 传入参数:{'category_type': 1}
+2026-03-10 16:47:57 INFO [agent] [middleware.py:77] - [tool monitor] 工具{'name': 'query_category_list', 'args': {'category_type': 1}, 'id': 'call_8af116944cb6495795364524', 'type': 'tool_call'}执行结果:content='共查询到 5 个分类:\n\n分类 ID: 1\n分类名称：热销菜品\n类型：菜品\n排序：1\n状态：启用\n\n分类 ID: 24\n分类名称：darling\n类型：菜品\n排序：1\n状态：启用\n\n分类 ID: 2\n分类名称：川菜系列\n类型：菜品\n排序：2\n状态：启用\n\n分类 ID: 3\n分类名称：粤菜系列\n类型：菜品\n排序：3\n状态：启用\n\n分类 ID: 4\n分类名称：主食小吃\n类型：菜品\n排序：4\n状态：启用\n' name='query_category_list' tool_call_id='call_8af116944cb6495795364524'
+2026-03-10 16:47:57 INFO [agent] [middleware.py:124] - [log_before_model] 即将调用模型，带有3条消息
+2026-03-10 16:47:57 DEBUG [agent] [middleware.py:128] - [log_before_model]ToolMessage|共查询到 5 个分类:
+
+分类 ID: 1
+分类名称：热销菜品
+类型：菜品
+排序：1
+状态：启用
+
+分类 ID: 24
+分类名称：darling
+类型：菜品
+排序：1
+状态：启用
+
+分类 ID: 2
+分类名称：川菜系列
+类型：菜品
+排序：2
+状态：启用
+
+分类 ID: 3
+分类名称：粤菜系列
+类型：菜品
+排序：3
+状态：启用
+
+分类 ID: 4
+分类名称：主食小吃
+类型：菜品
+排序：4
+状态：启用
